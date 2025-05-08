@@ -10,16 +10,13 @@
 /*}*/
 
 
-/* 通用提示框样式 */
-.coverage-if,
-.coverage-else {
-    position: relative;
-    cursor: help;
-    border: 1.5px dashed dodgerblue;
-    border: 1px dashed darkorange;
-    padding: 1px 3px;
-    border-radius: 3px;
-    z-index: 100000100000;
+.insert-e-decoration::before {
+    content: 'E';
+    background-color: red;
+    color: white;
+    padding: 0 2px;
+    border-radius: 2px;
+    margin-right: 2px;
 }
 
 /* Tooltip 内容 */

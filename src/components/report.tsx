@@ -38,22 +38,20 @@ const Report = () => {
 
     useEffect(() => {
         if (editor) {
+
+            const d = [
+                {
+                    range: new monaco.Range(20, 3, 20, 3), // 第3行第5列前插入
+                    options: {
+                        beforeContentClassName: 'insert-e-decoration',
+                        stickiness: monaco.editor.TrackedRangeStickiness.NeverGrowsWhenTypingAtEdges
+                    }
+                }
+            ]
+
             editor?.deltaDecorations?.(
                 [], // oldDecorations 每次清空上次标记的
-                decorations.map(
-                    ({ inlineClassName, startLine, startCol, endLine, endCol }) => ({
-                        range: new monaco.Range(
-                            startLine,
-                            startCol,
-                            endLine,
-                            endCol,
-                        ),
-                        options: {
-                            isWholeLine: false,
-                            inlineClassName: inlineClassName,
-                        },
-                    }),
-                ),
+                d,
             );
         }
     }, [editor, decorations]);
